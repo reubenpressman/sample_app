@@ -1,20 +1,20 @@
 SampleApp::Application.routes.draw do
-  get "session/new"
+  get "sessions/new"
   get "users/new"
   # get "static_pages/home"
   # get "static_pages/help"
   # get "static_pages/about"
   # get "static_pages/contact"
 
-  root 'static_pages#home'
-  match '/signup',  to:'users#new',             via:'get'
-  match '/help',    to:'static_pages#help',     via:'get'
-  match '/about',   to:'static_pages#about',    via:'get'
-  match '/contact', to:'static_pages#contact',  via:'get'
+  root    'static_pages#home'
+  match   '/signup',  to:'users#new',             via:'get'
+  match   '/help',    to:'static_pages#help',     via:'get'
+  match   '/about',   to:'static_pages#about',    via:'get'
+  match   '/contact', to:'static_pages#contact',  via:'get'
 
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+  get     'login'     => 'sessions#new'
+  post    'login'    => 'sessions#create'
+  delete  'logout' => 'sessions#destroy'
 
   resources :users
 
