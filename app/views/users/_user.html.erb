@@ -1,0 +1,10 @@
+<li <% if user.admin? %>class="admin"<% end %>>
+	<%= gravatar_for user %>
+	<%= link_to user.name, user %>
+	<% if current_user.admin? && !current_user?(user) %>
+	<span class="remove">| <%= link_to "Delete", user, method: :delete, data: { confirm: "You sure?" } %></span>
+	<% end %>
+	<% if user.admin? %><span class="admin">Admin</span><% end %>
+	<em><%=link_to user.email, 'mailto:' + user.email %></em>
+	<em class="created">User Since: <%= user.created_at %></em>
+</li>
